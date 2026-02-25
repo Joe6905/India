@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BHARAT — A Living Civilization</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --saffron: #FF6B00;
+  --saffron-light: #FF8C3A;
+  --saffron-pale: #FFF3E8;
+  --green-india: #0A6E3F;
+  --green-light: #E8F5EE;
+  --navy: #0D1B3E;
+  --navy-mid: #1A2F5A;
+  --gold: #C9962A;
+  --gold-light: #F5D97A;
+  --cream: #FAF7F2;
+  --white: #FFFFFF;
+  --text-dark: #1A1208;
+  --text-mid: #4A3F2F;
+  --text-light: #8A7A6A;
+  --border: rgba(201,150,42,0.2);
+  --shadow: 0 20px 60px rgba(0,0,0,0.12);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.08);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --transition: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* SCROLL PROGRESS */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--saffron), var(--gold), var(--green-india));
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 16px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(250,247,242,0.85);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s var(--transition);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-emblem {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.nav-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.08em;
+}
+
+.nav-title span { color: var(--saffron); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--saffron); }
+
+.nav-cta {
+  padding: 8px 20px;
+  background: var(--saffron);
+  color: white !important;
+  border-radius: 6px;
+  font-weight: 600 !important;
+}
+
+.nav-cta:hover { background: var(--saffron-light) !important; color: white !important; }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255,107,0,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(10,110,63,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(201,150,42,0.08) 0%, transparent 50%),
+    linear-gradient(135deg, #050D1F 0%, #0D1B3E 40%, #1A1A2E 100%);
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M30 0l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-chakra {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,150,42,0.15);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: chakra-spin 60s linear infinite;
+}
+
+.hero-chakra::before {
+  content: '';
+  position: absolute;
+  inset: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,107,0,0.08);
+}
+
+.hero-chakra::after {
+  content: '';
+  position: absolute;
+  inset: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(10,110,63,0.08);
+}
+
+@keyframes chakra-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 900px;
+}
+
+.hero-devanagari {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.2rem;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fade-up 1s var(--transition) 0.3s forwards;
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fade-up 1s var(--transition) 0.5s forwards;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 0.95;
+  color: white;
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fade-up 1s var(--transition) 0.7s forwards;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fade-up 1s var(--transition) 0.9s forwards;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fade-up 1s var(--transition) 1.1s forwards;
+}
+
+.hero-stat-item {
+  text-align: center;
+}
+
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 4px;
+}
+
+.hero-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.15);
+  align-self: center;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  opacity: 0;
+  animation: fade-up 1s var(--transition) 1.3s forwards;
+}
+
+.btn-primary {
+  padding: 14px 36px;
+  background: var(--saffron);
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--saffron-light);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255,107,0,0.4);
+}
+
+.btn-outline {
+  padding: 14px 36px;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: fade-up 1s var(--transition) 1.5s both;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes scroll-line {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* FLAG COLORS BAR */
+.tricolor-bar {
+  height: 6px;
+  background: linear-gradient(90deg, var(--saffron) 33.33%, white 33.33%, white 66.66%, var(--green-india) 66.66%);
+}
+
+/* SECTION STYLES */
+section {
+  padding: 100px 5%;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.section-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold));
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+
+/* MAP SECTION */
+#map {
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+#map::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(to left, var(--saffron-pale), transparent);
+  pointer-events: none;
+}
+
+.map-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.map-info {
+  position: relative;
+  z-index: 2;
+}
+
+.map-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.map-fact-card {
+  padding: 20px;
+  background: var(--cream);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--saffron);
+}
+
+.map-fact-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.map-fact-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.india-svg-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.india-svg-container svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+}
+
+.india-map-path {
+  fill: var(--saffron-pale);
+  stroke: var(--saffron);
+  stroke-width: 1.5;
+  transition: fill 0.2s;
+  cursor: pointer;
+}
+
+.india-map-path:hover {
+  fill: var(--saffron);
+}
+
+/* STATES SECTION */
+#states {
+  background: var(--cream);
+}
+
+.state-filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: all 0.25s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: white;
+}
+
+.states-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.state-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: all 0.35s var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.state-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  border-color: var(--saffron);
+}
+
+.state-card-header {
+  padding: 20px 20px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.state-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.state-type-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.badge-state {
+  background: var(--saffron-pale);
+  color: var(--saffron);
+}
+
+.badge-ut {
+  background: var(--green-light);
+  color: var(--green-india);
+}
+
+.state-card-body {
+  padding: 16px 20px 20px;
+}
+
+.state-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  color: var(--text-mid);
+}
+
+.state-detail-icon {
+  font-size: 0.9rem;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.state-region-tag {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: var(--cream);
+  color: var(--text-light);
+}
+
+/* TIMELINE */
+#timeline {
+  background: var(--navy);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+#timeline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(255,107,0,0.08), transparent 60%),
+              radial-gradient(ellipse at 70% 50%, rgba(10,110,63,0.06), transparent 60%);
+  pointer-events: none;
+}
+
+#timeline .section-title { color: white; }
+#timeline .section-desc { color: rgba(255,255,255,0.55); }
+
+.timeline-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--saffron), var(--gold), var(--green-india));
+  transform: translateX(-50%);
+}
+
+.timeline-items {
+  position: relative;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  margin-bottom: 20px;
+  align-items: start;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  grid-column: 1;
+  text-align: right;
+  padding-right: 40px;
+}
+
+.timeline-item:nth-child(odd) .timeline-spacer {
+  grid-column: 3;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  grid-column: 3;
+  text-align: left;
+  padding-left: 40px;
+}
+
+.timeline-item:nth-child(even) .timeline-spacer {
+  grid-column: 1;
+}
+
+.timeline-dot-col {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--navy);
+  box-shadow: 0 0 0 2px var(--gold);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.timeline-item.active .timeline-dot {
+  background: var(--saffron);
+  box-shadow: 0 0 0 2px var(--saffron), 0 0 20px rgba(255,107,0,0.5);
+  transform: scale(1.3);
+}
+
+.timeline-content {
+  cursor: pointer;
+}
+
+.timeline-period {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 4px;
+}
+
+.timeline-era-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.timeline-expand {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s var(--transition);
+}
+
+.timeline-item.active .timeline-expand {
+  max-height: 200px;
+}
+
+.timeline-body {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+  padding: 8px 0 12px;
+}
+
+.timeline-figures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.timeline-item:nth-child(odd) .timeline-figures {
+  justify-content: flex-end;
+}
+
+.fig-tag {
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* CULTURE */
+#culture {
+  background: white;
+}
+
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.culture-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: transform 0.4s var(--transition);
+}
+
+.culture-card:hover {
+  transform: scale(1.02);
+}
+
+.culture-card-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  z-index: 0;
+}
+
+.culture-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.culture-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  color: white;
+}
+
+.culture-card-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.culture-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.culture-card-desc {
+  font-size: 0.82rem;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.culture-card.c1 .culture-card-bg { background: linear-gradient(135deg, #8B1A1A 0%, #C41E3A 100%); }
+.culture-card.c2 .culture-card-bg { background: linear-gradient(135deg, #2D5A27 0%, #4CAF50 100%); }
+.culture-card.c3 .culture-card-bg { background: linear-gradient(135deg, #1A237E 0%, #3F51B5 100%); }
+.culture-card.c4 .culture-card-bg { background: linear-gradient(135deg, #4A148C 0%, #7B1FA2 100%); }
+.culture-card.c5 .culture-card-bg { background: linear-gradient(135deg, #E65100 0%, #FF8F00 100%); }
+.culture-card.c6 .culture-card-bg { background: linear-gradient(135deg, #006064 0%, #00ACC1 100%); }
+
+.culture-card-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+}
+
+/* CONTRIBUTIONS */
+#contributions {
+  background: var(--cream);
+  position: relative;
+}
+
+.contrib-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contrib-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s var(--transition);
+  border-bottom: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.contrib-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold));
+  transform: scaleX(0);
+  transition: transform 0.3s var(--transition);
+  transform-origin: left;
+}
+
+.contrib-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  border-bottom-color: var(--saffron);
+}
+
+.contrib-card:hover::before { transform: scaleX(1); }
+
+.contrib-icon {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+}
+
+.contrib-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.contrib-period {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--saffron);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.contrib-desc {
+  font-size: 0.83rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* DEMOCRACY */
+#democracy {
+  background: white;
+}
+
+.democracy-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.governance-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pillar-card {
+  padding: 24px;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--saffron);
+  background: var(--cream);
+}
+
+.pillar-card.executive { border-color: var(--saffron); }
+.pillar-card.legislative { border-color: var(--gold); }
+.pillar-card.judiciary { border-color: var(--green-india); }
+
+.pillar-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.pillar-desc {
+  font-size: 0.83rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.democracy-visual {
+  position: relative;
+}
+
+.democracy-quote {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.democracy-quote::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10rem;
+  color: rgba(255,107,0,0.1);
+  line-height: 1;
+}
+
+.dq-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.9);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+}
+
+.dq-attr {
+  font-size: 0.8rem;
+  color: var(--saffron);
+  font-weight: 600;
+}
+
+.democracy-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.dem-fact {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+}
+
+.dem-fact-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.dem-fact-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* STATS */
+#stats {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+#stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,107,0,0.1), transparent 60%);
+  pointer-events: none;
+}
+
+#stats .section-title { color: white; }
+#stats .section-desc { color: rgba(255,255,255,0.5); }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold));
+}
+
+.stat-card:hover {
+  background: rgba(255,255,255,0.07);
+  transform: translateY(-4px);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.05em;
+}
+
+/* CURRENT AFFAIRS */
+#current-affairs {
+  background: var(--cream);
+}
+
+.affairs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.affairs-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s var(--transition);
+}
+
+.affairs-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+.affairs-card-top {
+  height: 8px;
+}
+
+.affairs-card-top.economy { background: linear-gradient(90deg, #FF6B00, #FF8C3A); }
+.affairs-card-top.space { background: linear-gradient(90deg, #1A237E, #3F51B5); }
+.affairs-card-top.digital { background: linear-gradient(90deg, #0A6E3F, #4CAF50); }
+.affairs-card-top.infra { background: linear-gradient(90deg, #C9962A, #F5D97A); }
+.affairs-card-top.global { background: linear-gradient(90deg, #6A1B9A, #9C27B0); }
+
+.affairs-card-body {
+  padding: 20px 24px 24px;
+}
+
+.affairs-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.affairs-date {
+  font-size: 0.7rem;
+  color: var(--text-light);
+}
+
+.affairs-category {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.cat-economy { background: #FFF3E8; color: var(--saffron); }
+.cat-space { background: #E8EAF6; color: #3F51B5; }
+.cat-digital { background: var(--green-light); color: var(--green-india); }
+.cat-infra { background: #FFF8E1; color: #F57F17; }
+.cat-global { background: #F3E5F5; color: #6A1B9A; }
+
+.affairs-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.affairs-desc {
+  font-size: 0.83rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* TOURISM */
+#tourism {
+  background: white;
+}
+
+.tourism-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tourism-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: transform 0.4s var(--transition);
+  box-shadow: var(--shadow-card);
+}
+
+.tourism-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.tourism-card-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+}
+
+.tourism-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+}
+
+.tourism-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  color: white;
+}
+
+.tourism-card-attraction {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+}
+
+.tourism-card-state {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.tourism-card-desc {
+  font-size: 0.82rem;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.tourism-card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.t-tag {
+  font-size: 0.68rem;
+  padding: 3px 8px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+}
+
+/* Tourism gradients */
+.t1 .tourism-card-bg { background: linear-gradient(135deg, #1A237E, #283593); }
+.t2 .tourism-card-bg { background: linear-gradient(135deg, #1B5E20, #2E7D32); }
+.t3 .tourism-card-bg { background: linear-gradient(135deg, #BF360C, #D84315); }
+.t4 .tourism-card-bg { background: linear-gradient(135deg, #006064, #00838F); }
+.t5 .tourism-card-bg { background: linear-gradient(135deg, #4A148C, #6A1B9A); }
+.t6 .tourism-card-bg { background: linear-gradient(135deg, #0D47A1, #1565C0); }
+.t7 .tourism-card-bg { background: linear-gradient(135deg, #880E4F, #AD1457); }
+.t8 .tourism-card-bg { background: linear-gradient(135deg, #33691E, #558B2F); }
+
+/* FAQ */
+#faq {
+  background: var(--cream);
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--navy);
+  text-align: left;
+  gap: 16px;
+  transition: color 0.2s;
+}
+
+.faq-question:hover { color: var(--saffron); }
+
+.faq-item.active .faq-question { color: var(--saffron); }
+
+.faq-icon {
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: transform 0.3s var(--transition);
+  font-weight: 300;
+  color: var(--saffron);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--transition);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+}
+
+.faq-answer p {
+  padding: 0 0 20px;
+  color: var(--text-mid);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+/* FOOTER */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.6);
+  padding: 60px 5% 40px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 30px;
+}
+
+.footer-brand h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.footer-brand p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.footer-col h4 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--saffron); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.footer-flag {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.flag-stripe {
+  width: 20px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+/* REVEAL ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s var(--transition);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .map-container,
+  .democracy-layout,
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .timeline-line { display: none; }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    margin-left: 20px;
+    border-left: 2px solid var(--saffron);
+    padding-left: 20px;
+    margin-bottom: 24px;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    grid-column: 1;
+    text-align: left;
+    padding: 0;
+  }
+
+  .timeline-dot-col,
+  .timeline-spacer {
+    display: none;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-figures {
+    justify-content: flex-start;
+  }
+
+  .nav-links { display: none; }
+
+  .hero-stats { gap: 24px; }
+  .hero-divider { display: none; }
+}
+
+@media (max-width: 600px) {
+  section { padding: 70px 5%; }
+  .culture-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* UTILITY */
+.text-center { text-align: center; }
+.mt-8 { margin-top: 32px; }
+.mb-0 { margin-bottom: 0; }
+
+/* MAP TOOLTIP */
+.map-tooltip {
+  position: absolute;
+  background: var(--navy);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 100;
+  max-width: 200px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.map-tooltip.visible { opacity: 1; }
+
+.map-tooltip h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: var(--gold-light);
+}
+
+.map-tooltip p {
+  opacity: 0.7;
+  line-height: 1.4;
+  font-size: 0.75rem;
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <div class="nav-emblem">🪷</div>
+    <span class="nav-title"><span>BH</span>ARAT</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#map">Map</a></li>
+    <li><a href="#states">States</a></li>
+    <li><a href="#timeline">History</a></li>
+    <li><a href="#culture">Culture</a></li>
+    <li><a href="#contributions">Legacy</a></li>
+    <li><a href="#stats">Stats</a></li>
+    <li><a href="#tourism" class="nav-cta">Explore</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-chakra"></div>
+
+  <div class="hero-content">
+    <div class="hero-devanagari">भारत — एक जीवित सभ्यता</div>
+    <div class="hero-eyebrow">The World's Largest Democracy</div>
+    <h1 class="hero-title">BHARAT —<br><em>A Living Civilization</em></h1>
+    <p class="hero-subtitle">5,000 years of wisdom, culture, and unbroken heritage</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">1.4B+</div>
+        <div class="hero-stat-label">People</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">5000+</div>
+        <div class="hero-stat-label">Years of History</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">22</div>
+        <div class="hero-stat-label">Official Languages</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">36</div>
+        <div class="hero-stat-label">States & UTs</div>
+      </div>
+    </div>
+
+    <div class="hero-buttons">
+      <a href="#map" class="btn-primary">Explore Bharat</a>
+      <a href="#timeline" class="btn-outline">5000 Years of History</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div class="tricolor-bar"></div>
+
+<!-- MAP SECTION -->
+<section id="map">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Geography</div>
+    <h2 class="section-title">The Land of Bharat</h2>
+    <p class="section-desc">Stretching from the Himalayas in the north to the Indian Ocean in the south, spanning 3.29 million square kilometres of extraordinary diversity.</p>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="map-container">
+    <div class="map-info reveal">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--navy);margin-bottom:12px;">A Subcontinent of Wonders</h3>
+      <p style="color:var(--text-light);line-height:1.7;margin-bottom:24px;">The Republic of India — Bharat — is the world's seventh-largest country by area and home to the most diverse population on earth. From snow-capped peaks to tropical coastlines, arid deserts to lush rainforests, Bharat contains multitudes.</p>
+
+      <div class="map-facts">
+        <div class="map-fact-card">
+          <div class="map-fact-num">3.29M</div>
+          <div class="map-fact-label">km² Total Area</div>
+        </div>
+        <div class="map-fact-card">
+          <div class="map-fact-num">7,516</div>
+          <div class="map-fact-label">km Coastline</div>
+        </div>
+        <div class="map-fact-card">
+          <div class="map-fact-num">28</div>
+          <div class="map-fact-label">States</div>
+        </div>
+        <div class="map-fact-card">
+          <div class="map-fact-num">8</div>
+          <div class="map-fact-label">Union Territories</div>
+        </div>
+        <div class="map-fact-card">
+          <div class="map-fact-num">15,106</div>
+          <div class="map-fact-label">km Land Border</div>
+        </div>
+        <div class="map-fact-card">
+          <div class="map-fact-num">5</div>
+          <div class="map-fact-label">Neighbouring Nations</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="india-svg-container reveal">
+      <div class="map-tooltip" id="map-tooltip">
+        <h4 id="tooltip-name">State</h4>
+        <p id="tooltip-info">Information</p>
+      </div>
+      <svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg" id="india-map">
+        <!-- Simplified but recognizable India outline -->
+        <defs>
+          <filter id="map-shadow">
+            <feDropShadow dx="2" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,0.2)"/>
+          </filter>
+        </defs>
+        <!-- Main India body - stylized but recognizable -->
+        <g filter="url(#map-shadow)">
+          <!-- NORTH INDIA -->
+          <path class="india-map-path" data-state="Jammu & Kashmir" data-info="Capital: Srinagar (Summer) | Known for: Dal Lake, Mughal Gardens" d="M 130 30 L 175 25 L 200 40 L 210 65 L 190 70 L 165 60 L 140 70 L 120 55 Z"/>
+          <path class="india-map-path" data-state="Ladakh (UT)" data-info="Capital: Leh | Known for: Pangong Lake, Monasteries" d="M 200 25 L 240 20 L 260 45 L 250 65 L 220 70 L 210 65 L 200 40 Z"/>
+          <path class="india-map-path" data-state="Himachal Pradesh" data-info="Capital: Shimla | Known for: Rohtang Pass, Manali" d="M 140 70 L 165 60 L 190 70 L 185 90 L 160 95 L 140 85 Z"/>
+          <path class="india-map-path" data-state="Punjab" data-info="Capital: Chandigarh | Known for: Golden Temple, Wagah Border" d="M 115 75 L 140 70 L 140 85 L 130 100 L 110 90 Z"/>
+          <path class="india-map-path" data-state="Uttarakhand" data-info="Capital: Dehradun | Known for: Char Dham, Valley of Flowers" d="M 185 90 L 210 85 L 215 105 L 195 110 L 178 100 Z"/>
+          <path class="india-map-path" data-state="Haryana" data-info="Capital: Chandigarh | Known for: Kurukshetra, Sultanpur" d="M 130 100 L 160 95 L 165 115 L 145 120 L 125 112 Z"/>
+          <path class="india-map-path" data-state="Delhi (UT)" data-info="Capital: New Delhi | Known for: India Gate, Red Fort, Qutub Minar" d="M 158 113 L 170 110 L 172 122 L 160 125 Z" style="fill:#ffe0b2;stroke:var(--saffron);stroke-width:2"/>
+          <path class="india-map-path" data-state="Rajasthan" data-info="Capital: Jaipur | Known for: Thar Desert, Amber Fort, Jaisalmer" d="M 100 100 L 130 100 L 125 112 L 145 120 L 140 160 L 120 185 L 95 175 L 80 145 L 85 120 Z"/>
+          <path class="india-map-path" data-state="Uttar Pradesh" data-info="Capital: Lucknow | Known for: Taj Mahal, Varanasi, Ayodhya" d="M 165 115 L 215 105 L 235 120 L 240 145 L 220 160 L 195 165 L 170 155 L 145 148 L 140 130 Z"/>
+          <path class="india-map-path" data-state="Bihar" data-info="Capital: Patna | Known for: Bodh Gaya, Nalanda, Rajgir" d="M 240 145 L 270 140 L 280 155 L 265 170 L 245 172 L 225 165 Z"/>
+          <path class="india-map-path" data-state="Sikkim" data-info="Capital: Gangtok | Known for: Kanchenjunga, Rumtek Monastery" d="M 275 135 L 290 130 L 295 145 L 280 150 Z"/>
+          <path class="india-map-path" data-state="West Bengal" data-info="Capital: Kolkata | Known for: Victoria Memorial, Sundarbans" d="M 280 155 L 300 148 L 310 165 L 305 190 L 285 200 L 270 185 L 265 170 Z"/>
+          <path class="india-map-path" data-state="Jharkhand" data-info="Capital: Ranchi | Known for: Hundru Falls, Betla NP" d="M 245 172 L 265 170 L 270 185 L 255 195 L 235 190 L 228 178 Z"/>
+          <path class="india-map-path" data-state="Odisha" data-info="Capital: Bhubaneswar | Known for: Konark Temple, Puri Jagannath" d="M 255 195 L 270 185 L 285 200 L 290 220 L 275 240 L 255 235 L 245 215 Z"/>
+          <path class="india-map-path" data-state="Chhattisgarh" data-info="Capital: Raipur | Known for: Chitrakote Falls, Bastar" d="M 210 175 L 235 175 L 245 215 L 228 225 L 205 220 L 195 200 Z"/>
+          <path class="india-map-path" data-state="Madhya Pradesh" data-info="Capital: Bhopal | Known for: Khajuraho, Kanha Tiger Reserve" d="M 140 160 L 170 155 L 195 165 L 210 175 L 205 220 L 175 230 L 150 220 L 130 205 L 120 185 Z"/>
+          <path class="india-map-path" data-state="Gujarat" data-info="Capital: Gandhinagar | Known for: Rann of Kutch, Somnath, Gir" d="M 80 145 L 95 175 L 88 200 L 100 215 L 90 235 L 75 230 L 60 210 L 55 185 L 65 160 Z"/>
+          <path class="india-map-path" data-state="Maharashtra" data-info="Capital: Mumbai | Known for: Gateway of India, Ajanta-Ellora" d="M 120 185 L 150 220 L 160 240 L 150 260 L 130 265 L 105 255 L 90 235 L 100 215 L 88 200 L 95 195 Z"/>
+          <path class="india-map-path" data-state="Telangana" data-info="Capital: Hyderabad | Known for: Charminar, Golconda Fort" d="M 175 230 L 205 220 L 210 245 L 195 265 L 175 268 L 160 255 L 160 240 Z"/>
+          <path class="india-map-path" data-state="Andhra Pradesh" data-info="Capital: Amaravati | Known for: Tirupati, Araku Valley" d="M 210 245 L 228 225 L 245 240 L 250 265 L 235 285 L 210 285 L 195 275 L 195 265 Z"/>
+          <path class="india-map-path" data-state="Karnataka" data-info="Capital: Bengaluru | Known for: Hampi, Coorg, Mysuru Palace" d="M 130 265 L 160 255 L 175 268 L 195 265 L 195 275 L 180 300 L 160 305 L 135 295 L 120 275 Z"/>
+          <path class="india-map-path" data-state="Goa" data-info="Capital: Panaji | Known for: Beaches, Basilica of Bom Jesus" d="M 105 255 L 120 255 L 122 270 L 108 272 Z"/>
+          <path class="india-map-path" data-state="Kerala" data-info="Capital: Thiruvananthapuram | Known for: Backwaters, Munnar" d="M 135 295 L 160 305 L 160 330 L 148 345 L 130 340 L 120 320 L 118 300 Z"/>
+          <path class="india-map-path" data-state="Tamil Nadu" data-info="Capital: Chennai | Known for: Meenakshi Temple, Ooty, Marina Beach" d="M 160 305 L 180 300 L 200 315 L 210 340 L 200 360 L 180 370 L 160 360 L 148 345 L 160 330 Z"/>
+          <!-- Northeast states - smaller -->
+          <path class="india-map-path" data-state="Arunachal Pradesh" data-info="Capital: Itanagar | Known for: Tawang Monastery, Ziro Valley" d="M 305 135 L 335 128 L 345 145 L 330 158 L 305 155 L 295 145 Z"/>
+          <path class="india-map-path" data-state="Assam" data-info="Capital: Dispur | Known for: Kaziranga NP, Majuli Island" d="M 295 155 L 330 158 L 335 172 L 315 180 L 295 175 L 285 165 Z"/>
+          <path class="india-map-path" data-state="Nagaland" data-info="Capital: Kohima | Known for: Hornbill Festival, Dzükou Valley" d="M 330 158 L 345 158 L 345 172 L 335 175 L 330 170 Z"/>
+          <path class="india-map-path" data-state="Manipur" data-info="Capital: Imphal | Known for: Loktak Lake, Keibul Lamjao NP" d="M 335 172 L 348 170 L 350 185 L 338 190 L 328 185 L 330 172 Z"/>
+          <path class="india-map-path" data-state="Mizoram" data-info="Capital: Aizawl | Known for: Blue Mountains, Palak Dil Lake" d="M 328 185 L 338 190 L 337 202 L 322 205 L 318 195 Z"/>
+          <path class="india-map-path" data-state="Tripura" data-info="Capital: Agartala | Known for: Ujjayanta Palace, Neermahal" d="M 315 180 L 328 185 L 322 200 L 308 198 L 307 185 Z"/>
+          <path class="india-map-path" data-state="Meghalaya" data-info="Capital: Shillong | Known for: Living Root Bridges, Cherrapunji" d="M 295 175 L 315 180 L 312 190 L 296 188 L 290 180 Z"/>
+
+          <!-- Andaman Islands (simplified) -->
+          <ellipse class="india-map-path" data-state="Andaman & Nicobar (UT)" data-info="Capital: Port Blair | Known for: Radhanagar Beach, Cellular Jail" cx="360" cy="280" rx="12" ry="25"/>
+          <!-- Lakshadweep -->
+          <circle class="india-map-path" data-state="Lakshadweep (UT)" data-info="Capital: Kavaratti | Known for: Coral Reefs, Lagoons" cx="100" cy="340" r="8"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- STATES SECTION -->
+<section id="states">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Administrative Divisions</div>
+    <h2 class="section-title">28 States & 8 Union Territories</h2>
+    <p class="section-desc">Each state is a world unto itself — unique in language, cuisine, costume, climate, and character.</p>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="state-filters reveal">
+    <button class="filter-btn active" onclick="filterStates('all', this)">All</button>
+    <button class="filter-btn" onclick="filterStates('North', this)">North</button>
+    <button class="filter-btn" onclick="filterStates('South', this)">South</button>
+    <button class="filter-btn" onclick="filterStates('East', this)">East</button>
+    <button class="filter-btn" onclick="filterStates('West', this)">West</button>
+    <button class="filter-btn" onclick="filterStates('Northeast', this)">Northeast</button>
+    <button class="filter-btn" onclick="filterStates('Central', this)">Central</button>
+    <button class="filter-btn" onclick="filterStates('UT', this)">Union Territories</button>
+  </div>
+
+  <div class="states-grid" id="states-grid">
+    <!-- Generated by JS -->
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Civilizational Journey</div>
+    <h2 class="section-title" style="color:white;">5,000 Years of History</h2>
+    <p class="section-desc">From the banks of the Indus to the halls of a modern republic — an unbroken story of human civilization.</p>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="timeline-wrapper reveal">
+    <div class="timeline-line"></div>
+    <div class="timeline-items" id="timeline-items">
+      <!-- Generated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE -->
+<section id="culture">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Living Heritage</div>
+    <h2 class="section-title">Cultural Tapestry of Bharat</h2>
+    <p class="section-desc">Unity in Diversity — Bharat's greatest strength is its ability to hold countless traditions, faiths, arts, and languages in harmonious coexistence.</p>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="culture-grid reveal">
+    <div class="culture-card c1">
+      <div class="culture-card-bg">🕉️</div>
+      <div class="culture-card-overlay"></div>
+      <div class="culture-card-content">
+        <div class="culture-card-icon">🕉️</div>
+        <div class="culture-card-title">Spiritual Heritage</div>
+        <div class="culture-card-desc">Birthplace of Hinduism, Buddhism, Jainism & Sikhism. Home to mosques, churches, synagogues, and Zoroastrian fire temples — all living in harmony.</div>
+      </div>
+    </div>
+    <div class="culture-card c2">
+      <div class="culture-card-bg">💃</div>
+      <div class="culture-card-overlay"></div>
+      <div class="culture-card-content">
+        <div class="culture-card-icon">💃</div>
+        <div class="culture-card-title">Classical Dance</div>
+        <div class="culture-card-desc">Eight classical dance forms: Bharatanatyam, Kathak, Odissi, Kuchipudi, Manipuri, Mohiniyattam, Kathakali, and Sattriya — each a complete art form.</div>
+      </div>
+    </div>
+    <div class="culture-card c3">
+      <div class="culture-card-bg">🏛️</div>
+      <div class="culture-card-overlay"></div>
+      <div class="culture-card-content">
+        <div class="culture-card-icon">🏛️</div>
+        <div class="culture-card-title">42 UNESCO Heritage Sites</div>
+        <div class="culture-card-desc">From the Taj Mahal and Konark Sun Temple to Hampi and the Great Himalayan National Park — among the world's most celebrated monuments.</div>
+      </div>
+    </div>
+    <div class="culture-card c4">
+      <div class="culture-card-bg">🎵</div>
+      <div class="culture-card-overlay"></div>
+      <div class="culture-card-content">
+        <div class="culture-card-icon">🎵</div>
+        <div class="culture-card-title">Music Traditions</div>
+        <div class="culture-card-desc">Hindustani and Carnatic classical traditions, thousands of folk music styles, ghazals, bhajans, and a modern film music industry that spans the globe.</div>
+      </div>
+    </div>
+    <div class="culture-card c5">
+      <div class="culture-card-bg">🎊</div>
+      <div class="culture-card-overlay"></div>
+      <div class="culture-card-content">
+        <div class="culture-card-icon">🎊</div>
+        <div class="culture-card-title">Festivals & Celebrations</div>
+        <div class="culture-card-desc">Diwali, Holi, Eid, Christmas, Pongal, Durga Puja, Onam, Navratri — Bharat celebrates more festivals than any nation on earth.</div>
+      </div>
+    </div>
+    <div class="culture-card c6">
+      <div class="culture-card-bg">🍛</div>
+      <div class="culture-card-overlay"></div>
+      <div class="culture-card-content">
+        <div class="culture-card-icon">🍛</div>
+        <div class="culture-card-title">Culinary Universe</div>
+        <div class="culture-card-desc">From Kashmiri Wazwan to Kerala Sadhya, from Rajasthani Dal Baati to Bengali Mishti — each region is a complete culinary civilization.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTRIBUTIONS -->
+<section id="contributions">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Global Legacy</div>
+    <h2 class="section-title">Bharat's Gifts to the World</h2>
+    <p class="section-desc">Across millennia, Indian civilization has been a source of foundational ideas and discoveries that transformed humanity.</p>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="contrib-grid reveal" id="contrib-grid">
+    <!-- Generated by JS -->
+  </div>
+</section>
+
+<!-- DEMOCRACY -->
+<section id="democracy">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Governance & Democracy</div>
+    <h2 class="section-title">The World's Largest Democracy</h2>
+    <p class="section-desc">The Indian democratic republic rests on a constitution adopted on 26th November 1949 — the world's longest written constitution.</p>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="democracy-layout">
+    <div class="governance-pillars reveal">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--navy);margin-bottom:20px;">Three Pillars of Governance</h3>
+      <div class="pillar-card executive">
+        <div class="pillar-title">⚖️ Executive</div>
+        <div class="pillar-desc">Led by the President as constitutional head and the Prime Minister as head of government. The Council of Ministers is collectively responsible to the Lok Sabha. The current framework balances federal and unitary characteristics.</div>
+      </div>
+      <div class="pillar-card legislative">
+        <div class="pillar-title">📜 Legislature (Parliament)</div>
+        <div class="pillar-desc">Bicameral Parliament consists of the Lok Sabha (House of the People, 543 elected seats) and Rajya Sabha (Council of States, 245 members). Laws must pass both houses.</div>
+      </div>
+      <div class="pillar-card judiciary">
+        <div class="pillar-title">🏛️ Judiciary</div>
+        <div class="pillar-desc">An independent judiciary headed by the Supreme Court of India, with 25 High Courts across the states. The judiciary acts as the guardian of the Constitution and fundamental rights of citizens.</div>
+      </div>
+    </div>
+
+    <div class="democracy-visual reveal">
+      <div class="democracy-quote">
+        <div class="dq-text">"We the People of India, having solemnly resolved to constitute India into a Sovereign, Socialist, Secular, Democratic Republic and to secure to all its citizens: Justice, Liberty, Equality, and Fraternity..."</div>
+        <div class="dq-attr">— Preamble to the Constitution of India, 1950</div>
+      </div>
+
+      <div class="democracy-facts">
+        <div class="dem-fact">
+          <div class="dem-fact-num">970M+</div>
+          <div class="dem-fact-label">Registered Voters</div>
+        </div>
+        <div class="dem-fact">
+          <div class="dem-fact-num">1950</div>
+          <div class="dem-fact-label">Republic Founded</div>
+        </div>
+        <div class="dem-fact">
+          <div class="dem-fact-num">448</div>
+          <div class="dem-fact-label">Articles in Constitution</div>
+        </div>
+        <div class="dem-fact">
+          <div class="dem-fact-num">18+</div>
+          <div class="dem-fact-label">Voting Age Since 1989</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">By the Numbers</div>
+    <h2 class="section-title">Bharat at a Glance</h2>
+    <p class="section-desc">The scale of Bharat in numbers — a civilization, an economy, and a democracy of extraordinary proportions.</p>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="stats-grid reveal" id="stats-grid">
+    <!-- Generated by JS -->
+  </div>
+</section>
+
+<!-- CURRENT AFFAIRS -->
+<section id="current-affairs">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Current Affairs</div>
+    <h2 class="section-title">Bharat Rising</h2>
+    <p class="section-desc">From space missions to digital revolution — Bharat's achievements in the modern era are redefining what is possible.</p>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="affairs-grid reveal">
+    <div class="affairs-card">
+      <div class="affairs-card-top economy"></div>
+      <div class="affairs-card-body">
+        <div class="affairs-meta">
+          <span class="affairs-date">2024</span>
+          <span class="affairs-category cat-economy">Economy</span>
+        </div>
+        <div class="affairs-title">5th Largest Economy Globally</div>
+        <div class="affairs-desc">India surpassed the United Kingdom to become the world's 5th largest economy by GDP (nominal), with a GDP exceeding $3.7 trillion. Projected to reach 3rd place by 2030.</div>
+      </div>
+    </div>
+
+    <div class="affairs-card">
+      <div class="affairs-card-top space"></div>
+      <div class="affairs-card-body">
+        <div class="affairs-meta">
+          <span class="affairs-date">August 2023</span>
+          <span class="affairs-category cat-space">Space</span>
+        </div>
+        <div class="affairs-title">Chandrayaan-3: Moon's South Pole</div>
+        <div class="affairs-desc">ISRO's Chandrayaan-3 became the first mission in history to achieve a soft landing near the lunar south pole — marking India as the 4th nation to land on the Moon.</div>
+      </div>
+    </div>
+
+    <div class="affairs-card">
+      <div class="affairs-card-top digital"></div>
+      <div class="affairs-card-body">
+        <div class="affairs-meta">
+          <span class="affairs-date">2024</span>
+          <span class="affairs-category cat-digital">Digital</span>
+        </div>
+        <div class="affairs-title">UPI: World's No. 1 Digital Payments</div>
+        <div class="affairs-desc">India processes over 10 billion digital transactions monthly through UPI — more than all other nations combined. India's digital payment infrastructure is being adopted globally.</div>
+      </div>
+    </div>
+
+    <div class="affairs-card">
+      <div class="affairs-card-top infra"></div>
+      <div class="affairs-card-body">
+        <div class="affairs-meta">
+          <span class="affairs-date">2024</span>
+          <span class="affairs-category cat-infra">Infrastructure</span>
+        </div>
+        <div class="affairs-title">World's Largest Expressway Network Expansion</div>
+        <div class="affairs-desc">India's PM Gati Shakti initiative is transforming infrastructure — with the national highway network crossing 1,46,000 km and new expressways connecting every major city.</div>
+      </div>
+    </div>
+
+    <div class="affairs-card">
+      <div class="affairs-card-top global"></div>
+      <div class="affairs-card-body">
+        <div class="affairs-meta">
+          <span class="affairs-date">2023</span>
+          <span class="affairs-category cat-global">Global</span>
+        </div>
+        <div class="affairs-title">G20 Presidency: Global South Voice</div>
+        <div class="affairs-desc">India's G20 Presidency in 2023 elevated the concerns of the Global South, achieved historic consensus on key economic issues, and culminated in the New Delhi Declaration.</div>
+      </div>
+    </div>
+
+    <div class="affairs-card">
+      <div class="affairs-card-top space"></div>
+      <div class="affairs-card-body">
+        <div class="affairs-meta">
+          <span class="affairs-date">2024</span>
+          <span class="affairs-category cat-space">Science</span>
+        </div>
+        <div class="affairs-title">Aditya-L1: First Solar Observatory</div>
+        <div class="affairs-desc">ISRO's Aditya-L1 mission, launched in September 2023, successfully inserted itself into halo orbit around Lagrange Point 1 — India's first dedicated solar observatory mission.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOURISM -->
+<section id="tourism">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Travel & Discovery</div>
+    <h2 class="section-title">Incredible Bharat</h2>
+    <p class="section-desc">Every state is a destination. Every city holds a story. From sacred temples to pristine beaches, from ancient ruins to living cultures.</p>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="tourism-grid reveal">
+    <div class="tourism-card t1">
+      <div class="tourism-card-bg">🕌</div>
+      <div class="tourism-card-overlay"></div>
+      <div class="tourism-card-content">
+        <div class="tourism-card-attraction">Taj Mahal, Agra</div>
+        <div class="tourism-card-state">Uttar Pradesh</div>
+        <div class="tourism-card-desc">The eternal monument of love. A UNESCO World Heritage Site and one of the Seven Wonders of the World.</div>
+        <div class="tourism-card-tags">
+          <span class="t-tag">Heritage</span>
+          <span class="t-tag">Mughal Architecture</span>
+          <span class="t-tag">Spiritual</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tourism-card t2">
+      <div class="tourism-card-bg">🏔️</div>
+      <div class="tourism-card-overlay"></div>
+      <div class="tourism-card-content">
+        <div class="tourism-card-attraction">Dal Lake, Srinagar</div>
+        <div class="tourism-card-state">Jammu & Kashmir</div>
+        <div class="tourism-card-desc">The jewel of the Himalayas. Houseboats, shikara rides, and snow-capped peaks reflected in still waters.</div>
+        <div class="tourism-card-tags">
+          <span class="t-tag">Mountains</span>
+          <span class="t-tag">Lakes</span>
+          <span class="t-tag">Gardens</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tourism-card t3">
+      <div class="tourism-card-bg">🏜️</div>
+      <div class="tourism-card-overlay"></div>
+      <div class="tourism-card-content">
+        <div class="tourism-card-attraction">Jaisalmer Fort</div>
+        <div class="tourism-card-state">Rajasthan</div>
+        <div class="tourism-card-desc">The Golden City rises from the Thar Desert. A living fort, camel safaris, and palaces carved in golden sandstone.</div>
+        <div class="tourism-card-tags">
+          <span class="t-tag">Desert</span>
+          <span class="t-tag">Forts</span>
+          <span class="t-tag">Culture</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tourism-card t4">
+      <div class="tourism-card-bg">🌊</div>
+      <div class="tourism-card-overlay"></div>
+      <div class="tourism-card-content">
+        <div class="tourism-card-attraction">Kerala Backwaters</div>
+        <div class="tourism-card-state">Kerala</div>
+        <div class="tourism-card-desc">A 900 km network of lagoons, lakes, and canals lined with lush coconut palms. God's Own Country.</div>
+        <div class="tourism-card-tags">
+          <span class="t-tag">Backwaters</span>
+          <span class="t-tag">Ayurveda</span>
+          <span class="t-tag">Wildlife</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tourism-card t5">
+      <div class="tourism-card-bg">🏛️</div>
+      <div class="tourism-card-overlay"></div>
+      <div class="tourism-card-content">
+        <div class="tourism-card-attraction">Hampi Ruins</div>
+        <div class="tourism-card-state">Karnataka</div>
+        <div class="tourism-card-desc">The ancient capital of the Vijayanagara Empire — over 1,600 remains of temples, royal pavilions, and markets spread over 41 km².</div>
+        <div class="tourism-card-tags">
+          <span class="t-tag">UNESCO</span>
+          <span class="t-tag">Ruins</span>
+          <span class="t-tag">Boulder Landscape</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tourism-card t6">
+      <div class="tourism-card-bg">🕍</div>
+      <div class="tourism-card-overlay"></div>
+      <div class="tourism-card-content">
+        <div class="tourism-card-attraction">Golden Temple, Amritsar</div>
+        <div class="tourism-card-state">Punjab</div>
+        <div class="tourism-card-desc">Harmandir Sahib — the holiest shrine in Sikhism, a vision of gold reflected on the sacred Amrit Sarovar. Open to all faiths.</div>
+        <div class="tourism-card-tags">
+          <span class="t-tag">Spiritual</span>
+          <span class="t-tag">Heritage</span>
+          <span class="t-tag">Langar</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tourism-card t7">
+      <div class="tourism-card-bg">🐅</div>
+      <div class="tourism-card-overlay"></div>
+      <div class="tourism-card-content">
+        <div class="tourism-card-attraction">Kaziranga National Park</div>
+        <div class="tourism-card-state">Assam</div>
+        <div class="tourism-card-desc">Home to two-thirds of the world's one-horned rhinoceros, Bengal tigers, elephants, and wild buffalo in the flood plains of the Brahmaputra.</div>
+        <div class="tourism-card-tags">
+          <span class="t-tag">UNESCO</span>
+          <span class="t-tag">Wildlife</span>
+          <span class="t-tag">Rhino</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tourism-card t8">
+      <div class="tourism-card-bg">🌅</div>
+      <div class="tourism-card-overlay"></div>
+      <div class="tourism-card-content">
+        <div class="tourism-card-attraction">Varanasi Ghats</div>
+        <div class="tourism-card-state">Uttar Pradesh</div>
+        <div class="tourism-card-desc">The world's oldest living city. The Ganga Aarti at dawn — thousands of flames reflected on the sacred river — is among the most profound experiences on earth.</div>
+        <div class="tourism-card-tags">
+          <span class="t-tag">Sacred</span>
+          <span class="t-tag">Ancient</span>
+          <span class="t-tag">Ganges</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Frequently Asked</div>
+    <h2 class="section-title">Understanding Bharat</h2>
+    <p class="section-desc">Answers to questions that capture what makes this civilization so extraordinary and enduring.</p>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="faq-container reveal" id="faq-container">
+    <!-- Generated by JS -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h3>🪷 BHARAT</h3>
+      <p>A living encyclopedia of the world's largest democracy — built to celebrate 5,000 years of civilization, culture, and human achievement.</p>
+      <div style="display:flex;gap:6px;margin-top:16px;">
+        <div class="flag-stripe" style="background:var(--saffron);"></div>
+        <div class="flag-stripe" style="background:white;"></div>
+        <div class="flag-stripe" style="background:var(--green-india);"></div>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="#map">Interactive Map</a>
+      <a href="#states">States & UTs</a>
+      <a href="#timeline">History</a>
+      <a href="#culture">Culture</a>
+      <a href="#tourism">Tourism</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Knowledge</h4>
+      <a href="#contributions">India's Legacy</a>
+      <a href="#democracy">Democracy</a>
+      <a href="#stats">Statistics</a>
+      <a href="#current-affairs">Current Affairs</a>
+      <a href="#faq">FAQ</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Facts</h4>
+      <a href="#">Capital: New Delhi</a>
+      <a href="#">Currency: Indian Rupee ₹</a>
+      <a href="#">National Language: Hindi</a>
+      <a href="#">National Animal: Tiger</a>
+      <a href="#">National Bird: Peacock</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2024 BHARAT Encyclopedia. Built with reverence.</p>
+    <p style="color:var(--saffron);">सत्यमेव जयते — Truth Alone Triumphs</p>
+  </div>
+</footer>
+
+<script>
+// SCROLL PROGRESS
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('scroll-progress').style.width = scrolled + '%';
+});
+
+// REVEAL ON SCROLL
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+reveals.forEach(el => observer.observe(el));
+
+// MAP INTERACTION
+const tooltip = document.getElementById('map-tooltip');
+const tooltipName = document.getElementById('tooltip-name');
+const tooltipInfo = document.getElementById('tooltip-info');
+
+document.querySelectorAll('.india-map-path').forEach(path => {
+  path.addEventListener('mouseenter', (e) => {
+    tooltipName.textContent = path.dataset.state;
+    tooltipInfo.textContent = path.dataset.info;
+    tooltip.classList.add('visible');
+  });
+
+  path.addEventListener('mousemove', (e) => {
+    const svgRect = document.getElementById('india-map').getBoundingClientRect();
+    const containerRect = document.querySelector('.india-svg-container').getBoundingClientRect();
+    const x = e.clientX - containerRect.left + 15;
+    const y = e.clientY - containerRect.top - 40;
+    tooltip.style.left = Math.min(x, containerRect.width - 220) + 'px';
+    tooltip.style.top = y + 'px';
+  });
+
+  path.addEventListener('mouseleave', () => {
+    tooltip.classList.remove('visible');
+  });
+});
+
+// STATES DATA
+const statesData = [
+  { name: "Andhra Pradesh", type: "state", region: "South", capital: "Amaravati", identity: "Land of Spices & Telugu Culture", attraction: "Tirupati Balaji Temple", economy: "Aquaculture, IT, Mining", emoji: "🌶️" },
+  { name: "Arunachal Pradesh", type: "state", region: "Northeast", capital: "Itanagar", identity: "The Rising Sun State", attraction: "Tawang Monastery", economy: "Hydropower, Tourism, Agriculture", emoji: "🌄" },
+  { name: "Assam", type: "state", region: "Northeast", capital: "Dispur", identity: "Land of Tea & Rhinos", attraction: "Kaziranga National Park", economy: "Tea, Oil, Tourism", emoji: "🍵" },
+  { name: "Bihar", type: "state", region: "East", capital: "Patna", identity: "Cradle of Civilization & Buddhism", attraction: "Bodh Gaya & Nalanda", economy: "Agriculture, Industry", emoji: "🪔" },
+  { name: "Chhattisgarh", type: "state", region: "Central", capital: "Raipur", identity: "Rice Bowl of Central India", attraction: "Chitrakote Waterfalls", economy: "Mining, Steel, Rice", emoji: "💎" },
+  { name: "Goa", type: "state", region: "West", capital: "Panaji", identity: "Pearl of the Orient", attraction: "Baga Beach & Old Goa", economy: "Tourism, Mining, Fishing", emoji: "🏖️" },
+  { name: "Gujarat", type: "state", region: "West", capital: "Gandhinagar", identity: "Land of Mahatma Gandhi", attraction: "Rann of Kutch Festival", economy: "Textiles, Petrochemicals, Pharma", emoji: "🦁" },
+  { name: "Haryana", type: "state", region: "North", capital: "Chandigarh", identity: "Granary of India", attraction: "Kurukshetra (Mahabharata Site)", economy: "Agriculture, Automobiles, IT", emoji: "🌾" },
+  { name: "Himachal Pradesh", type: "state", region: "North", capital: "Shimla", identity: "Dev Bhoomi – Land of Gods", attraction: "Rohtang Pass & Manali", economy: "Tourism, Horticulture, Hydropower", emoji: "🏔️" },
+  { name: "Jharkhand", type: "state", region: "East", capital: "Ranchi", identity: "Forest Land with Mineral Wealth", attraction: "Hundru Falls & Betla NP", economy: "Mining, Steel, Coal", emoji: "⛏️" },
+  { name: "Karnataka", type: "state", region: "South", capital: "Bengaluru", identity: "Silicon Valley of India", attraction: "Hampi UNESCO Ruins", economy: "IT, Aerospace, Silk, Coffee", emoji: "🚀" },
+  { name: "Kerala", type: "state", region: "South", capital: "Thiruvananthapuram", identity: "God's Own Country", attraction: "Alleppey Backwaters", economy: "Tourism, Remittances, IT", emoji: "🌴" },
+  { name: "Madhya Pradesh", type: "state", region: "Central", capital: "Bhopal", identity: "Heart of India & Tiger Country", attraction: "Khajuraho Temples (UNESCO)", economy: "Agriculture, Tourism, Mining", emoji: "🐯" },
+  { name: "Maharashtra", type: "state", region: "West", capital: "Mumbai", identity: "Financial Capital of India", attraction: "Ajanta-Ellora Caves (UNESCO)", economy: "Finance, Bollywood, IT, Manufacturing", emoji: "🎬" },
+  { name: "Manipur", type: "state", region: "Northeast", capital: "Imphal", identity: "Jewel of India", attraction: "Loktak Lake & Floating Islands", economy: "Agriculture, Handlooms, Bamboo", emoji: "💍" },
+  { name: "Meghalaya", type: "state", region: "Northeast", capital: "Shillong", identity: "Abode of Clouds", attraction: "Living Root Bridges", economy: "Tourism, Coal, Limestone", emoji: "☁️" },
+  { name: "Mizoram", type: "state", region: "Northeast", capital: "Aizawl", identity: "Land of Blue Mountains", attraction: "Palak Dil Lake", economy: "Agriculture, Bamboo, Tourism", emoji: "🏞️" },
+  { name: "Nagaland", type: "state", region: "Northeast", capital: "Kohima", identity: "Land of Festivals & Warriors", attraction: "Hornbill Festival", economy: "Agriculture, Tourism, Handlooms", emoji: "🥁" },
+  { name: "Odisha", type: "state", region: "East", capital: "Bhubaneswar", identity: "Temple State of India", attraction: "Konark Sun Temple (UNESCO)", economy: "Mining, Steel, Tourism", emoji: "☀️" },
+  { name: "Punjab", type: "state", region: "North", capital: "Chandigarh", identity: "Land of Five Rivers", attraction: "Golden Temple, Amritsar", economy: "Agriculture, Food Processing", emoji: "🌾" },
+  { name: "Rajasthan", type: "state", region: "North", capital: "Jaipur", identity: "Land of Kings & Royalty", attraction: "Jaisalmer Desert Fort", economy: "Tourism, Gems, Handicrafts, Mining", emoji: "🏰" },
+  { name: "Sikkim", type: "state", region: "Northeast", capital: "Gangtok", identity: "Himalayan Paradise", attraction: "Kanchenjunga & Monasteries", economy: "Tourism, Organic Farming, Cardamom", emoji: "🌸" },
+  { name: "Tamil Nadu", type: "state", region: "South", capital: "Chennai", identity: "Cradle of Dravidian Culture", attraction: "Meenakshi Temple, Madurai", economy: "Automobiles, IT, Textiles, Films", emoji: "🕍" },
+  { name: "Telangana", type: "state", region: "South", capital: "Hyderabad", identity: "City of Nizams & Pearls", attraction: "Charminar & Golconda Fort", economy: "IT, Pharma, Textiles", emoji: "👑" },
+  { name: "Tripura", type: "state", region: "Northeast", capital: "Agartala", identity: "Land of Fourteen Gods", attraction: "Ujjayanta Palace & Neermahal", economy: "Agriculture, Bamboo, Rubber", emoji: "🌿" },
+  { name: "Uttar Pradesh", type: "state", region: "North", capital: "Lucknow", identity: "Land of the Taj Mahal & Ganga", attraction: "Taj Mahal & Varanasi Ghats", economy: "Agriculture, IT, Tourism, Handicrafts", emoji: "🕌" },
+  { name: "Uttarakhand", type: "state", region: "North", capital: "Dehradun", identity: "Land of the Gods (Devbhoomi)", attraction: "Char Dham & Valley of Flowers", economy: "Tourism, Hydropower, Agriculture", emoji: "⛰️" },
+  { name: "West Bengal", type: "state", region: "East", capital: "Kolkata", identity: "Cultural Capital of India", attraction: "Victoria Memorial & Sundarbans", economy: "Jute, Finance, IT, Tea", emoji: "🎭" },
+  // Union Territories
+  { name: "Andaman & Nicobar", type: "ut", region: "UT", capital: "Port Blair", identity: "Emerald Islands of India", attraction: "Radhanagar Beach & Cellular Jail", economy: "Tourism, Fishing, Coconut", emoji: "🏝️" },
+  { name: "Chandigarh", type: "ut", region: "UT", capital: "Chandigarh", identity: "The City Beautiful", attraction: "Rock Garden by Nek Chand", economy: "Services, IT, Education", emoji: "🏙️" },
+  { name: "Dadra & Nagar Haveli and Daman & Diu", type: "ut", region: "UT", capital: "Daman", identity: "Coastal Enclave of History", attraction: "Diu Fort & Beaches", economy: "Industry, Tourism", emoji: "🌊" },
+  { name: "Delhi", type: "ut", region: "UT", capital: "New Delhi", identity: "Capital & Heart of India", attraction: "India Gate, Red Fort, Qutub Minar", economy: "Government, Finance, IT, Trade", emoji: "🏛️" },
+  { name: "Jammu & Kashmir", type: "ut", region: "UT", capital: "Srinagar (Summer), Jammu (Winter)", identity: "Paradise on Earth", attraction: "Dal Lake & Mughal Gardens", economy: "Tourism, Handicrafts, Agriculture", emoji: "❄️" },
+  { name: "Ladakh", type: "ut", region: "UT", capital: "Leh", identity: "Land of High Passes", attraction: "Pangong Lake & Monasteries", economy: "Tourism, Renewable Energy", emoji: "🏔️" },
+  { name: "Lakshadweep", type: "ut", region: "UT", capital: "Kavaratti", identity: "Coral Islands of the Arabian Sea", attraction: "Pristine Coral Reefs & Lagoons", economy: "Fishing, Coconut, Tourism", emoji: "🪸" },
+  { name: "Puducherry", type: "ut", region: "UT", capital: "Puducherry", identity: "French Riviera of the East", attraction: "Auroville & French Quarter", economy: "Tourism, IT, Fisheries", emoji: "🇫🇷" },
+];
+
+function renderStates(filter = 'all') {
+  const grid = document.getElementById('states-grid');
+  const filtered = filter === 'all' ? statesData :
+    filter === 'UT' ? statesData.filter(s => s.type === 'ut') :
+    statesData.filter(s => s.region === filter);
+
+  grid.innerHTML = filtered.map(s => `
+    <div class="state-card" data-region="${s.region}">
+      <div class="state-card-header">
+        <div>
+          <div style="font-size:1.8rem;margin-bottom:4px;">${s.emoji}</div>
+          <div class="state-name">${s.name}</div>
+        </div>
+        <span class="state-type-badge ${s.type === 'state' ? 'badge-state' : 'badge-ut'}">${s.type === 'state' ? 'State' : 'Union Territory'}</span>
+      </div>
+      <div class="state-card-body">
+        <div class="state-detail"><span class="state-detail-icon">🏙️</span><span><strong>Capital:</strong> ${s.capital}</span></div>
+        <div class="state-detail"><span class="state-detail-icon">✨</span><span>${s.identity}</span></div>
+        <div class="state-detail"><span class="state-detail-icon">📸</span><span>${s.attraction}</span></div>
+        <div class="state-detail"><span class="state-detail-icon">💼</span><span>${s.economy}</span></div>
+        <span class="state-region-tag">${s.region}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterStates(filter, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderStates(filter);
+}
+
+renderStates();
+
+// TIMELINE DATA
+const timelineData = [
+  { period: "c. 3300–1300 BCE", title: "Indus Valley Civilization", body: "One of the world's earliest urban civilizations flourished in the Indus and Ghaggar-Hakra river valleys. The cities of Mohenjo-daro and Harappa featured advanced urban planning, drainage systems, and standardized weights — remarkable achievements for their era.", figures: ["Mohenjo-daro", "Harappa", "Lothal"] },
+  { period: "c. 1500–600 BCE", title: "Vedic Age", body: "The composition of the Rigveda, Upanishads, and early Sanskrit literature. The foundations of Hindu philosophy, mathematics, astronomy, and governance were established. The concept of Dharma emerged as the organizing principle of society.", figures: ["Vedas", "Upanishads", "Sanskrit"] },
+  { period: "600–322 BCE", title: "Mahajanapadas & Birth of Religions", body: "The age of the sixteen great kingdoms. Siddhartha Gautama attained enlightenment and founded Buddhism; Mahavira established Jainism. Ayurveda was codified. Panini composed the first formal grammar of Sanskrit.", figures: ["Buddha", "Mahavira", "Panini", "Chanakya"] },
+  { period: "322–185 BCE", title: "Mauryan Empire", body: "Founded by Chandragupta Maurya and advised by Chanakya (Kautilya), the Mauryan Empire became the largest in the Indian subcontinent. Emperor Ashoka, after the Battle of Kalinga, embraced Buddhism and spread its message across Asia through rock edicts.", figures: ["Chandragupta Maurya", "Chanakya", "Ashoka"] },
+  { period: "320–550 CE", title: "Gupta Golden Age", body: "Considered the classical age of India. Aryabhata calculated pi and proposed heliocentrism; Brahmagupta formalized the concept of zero. Sanskrit literature, mathematics, astronomy, and art reached unprecedented heights.", figures: ["Chandragupta II", "Aryabhata", "Kalidasa", "Brahmagupta"] },
+  { period: "600–1200 CE", title: "Medieval India & Regional Kingdoms", body: "The age of powerful regional empires: Chalukyas, Pallavas, Rashtrakutas, and the magnificent Chola Dynasty. The Cholas built the Brihadeeswara Temple and maintained a powerful naval empire. Nalanda University attracted scholars from across Asia.", figures: ["Pulakesi II", "Rajendra Chola", "Shankaracharya"] },
+  { period: "1206–1526 CE", title: "Delhi Sultanate", body: "Five successive dynasties ruled northern India from Delhi, introducing Persian-Islamic architectural and cultural traditions. The Qutub Minar was built. Trade and cultural exchange with the Islamic world flourished.", figures: ["Qutbuddin Aibak", "Alauddin Khilji", "Iltutmish"] },
+  { period: "1526–1857 CE", title: "Mughal Era", body: "The Mughal Empire united most of the subcontinent and produced a magnificent syncretism of Persian, Islamic, and Indian art and architecture. The Taj Mahal, Red Fort, and Fatehpur Sikri were built. Emperor Akbar's court was a model of religious tolerance.", figures: ["Babur", "Akbar", "Shah Jahan", "Aurangzeb"] },
+  { period: "1757–1947 CE", title: "Colonial Period & Freedom Movement", body: "British East India Company rule followed by the British Crown. The Indian National Congress founded in 1885. Mahatma Gandhi led the non-violent Satyagraha movement. Bhagat Singh, Subhas Chandra Bose, Sardar Patel, and Nehru shaped the independence movement.", figures: ["Mahatma Gandhi", "Jawaharlal Nehru", "Sardar Patel", "Subhas Chandra Bose", "B.R. Ambedkar"] },
+  { period: "15 August 1947", title: "Independence", body: "At the stroke of midnight, India became an independent nation. Prime Minister Jawaharlal Nehru delivered his iconic 'Tryst with Destiny' speech. The partition of British India created India and Pakistan, accompanied by immense human tragedy and displacement.", figures: ["Jawaharlal Nehru", "Lord Mountbatten", "Mohammed Ali Jinnah"] },
+  { period: "26 January 1950", title: "The Republic of Bharat", body: "India adopted its Constitution — the world's longest written constitution — becoming a sovereign, democratic republic. Dr. B.R. Ambedkar, the principal architect of the Constitution, realized his vision of a just, equal, and pluralistic society.", figures: ["Dr. B.R. Ambedkar", "Rajendra Prasad", "Sardar Vallabhbhai Patel"] },
+  { period: "1950 – Present", title: "Modern Republic & Global Power", body: "From the Green Revolution to IT revolution, from the nuclear tests at Pokhran to landing on the Moon's south pole — Bharat emerged as a major world power. The economy crossed $3.7 trillion, and over 10 billion digital transactions occur monthly through UPI.", figures: ["Indira Gandhi", "A.P.J. Abdul Kalam", "ISRO", "IIT"] },
+];
+
+const timelineContainer = document.getElementById('timeline-items');
+timelineData.forEach((item, i) => {
+  const div = document.createElement('div');
+  div.className = 'timeline-item';
+  div.innerHTML = `
+    <div class="timeline-content" onclick="toggleTimeline(this)">
+      <div class="timeline-period">${item.period}</div>
+      <div class="timeline-era-title">${item.title}</div>
+      <div class="timeline-expand">
+        <div class="timeline-body">${item.body}</div>
+        <div class="timeline-figures">
+          ${item.figures.map(f => `<span class="fig-tag">${f}</span>`).join('')}
+        </div>
+      </div>
+    </div>
+    <div class="timeline-dot-col">
+      <div class="timeline-dot"></div>
+    </div>
+    <div class="timeline-spacer"></div>
+  `;
+  timelineContainer.appendChild(div);
+});
+
+function toggleTimeline(el) {
+  const item = el.closest('.timeline-item');
+  item.classList.toggle('active');
+}
+
+// CONTRIBUTIONS DATA
+const contributions = [
+  { icon: "0️⃣", title: "The Concept of Zero", period: "c. 7th Century CE", desc: "Brahmagupta formalized zero as a number and defined arithmetic operations with it — a mathematical foundation that transformed science and computing." },
+  { icon: "🔢", title: "Decimal Number System", period: "c. 5th Century CE", desc: "The decimal positional number system — 1 to 9 — was invented in India and transmitted through Arab scholars to Europe, revolutionizing mathematics." },
+  { icon: "♟️", title: "Chess (Chaturanga)", period: "c. 6th Century CE", desc: "The precursor to modern chess, Chaturanga was invented in the Gupta period. The game spread via Persia (Shatranj) to Europe and eventually became chess." },
+  { icon: "🌿", title: "Ayurveda", period: "c. 1000 BCE", desc: "The world's oldest medical system. Sushruta's Compendium from 600 BCE describes over 300 surgical procedures and 120 surgical instruments — including plastic surgery." },
+  { icon: "🧘", title: "Yoga & Meditation", period: "c. 3000 BCE+", desc: "Originating in the Indus Valley, yoga philosophy, breathing practices, and meditation have been adopted by hundreds of millions worldwide and recognized by the UN." },
+  { icon: "⭐", title: "Astronomy & Aryabhata", period: "499 CE", desc: "Aryabhata proposed that the Earth rotates on its axis, calculated the value of π to 3.1416, and determined the correct length of the solar year." },
+  { icon: "🏫", title: "Nalanda & Takshashila", period: "c. 700 BCE – 1200 CE", desc: "The world's first residential universities. Nalanda attracted scholars from China, Greece, and Persia; its library housed over 9 million manuscripts." },
+  { icon: "💊", title: "Sushruta & Surgery", period: "c. 600 BCE", desc: "Sushruta, the Father of Surgery, performed rhinoplasty, cataract surgery, and other procedures centuries before European medicine developed such techniques." },
+  { icon: "🚀", title: "ISRO & Space Exploration", period: "Modern Era", desc: "India's space agency reached Mars on its first attempt in 2014 and landed on the Moon's south pole in 2023 — becoming only the 4th nation to land on the Moon." },
+  { icon: "💳", title: "UPI Digital Payments", period: "21st Century", desc: "India's Unified Payments Interface processes over 10 billion monthly transactions — more than all other countries combined — redefining global fintech." },
+  { icon: "🛳️", title: "Maritime Navigation", period: "c. 3000 BCE", desc: "The world's first tidal dock was built at Lothal (Indus Valley) around 2500 BCE. Ancient Indians were among history's first seafarers and established maritime trade routes." },
+  { icon: "📐", title: "Trigonometry & Algebra", period: "c. 6th Century CE", desc: "The modern system of trigonometry was developed by Indian mathematicians. Brahmagupta's algebra, quadratic equations, and Bhaskara's calculus concepts preceded European mathematics." },
+];
+
+document.getElementById('contrib-grid').innerHTML = contributions.map(c => `
+  <div class="contrib-card reveal">
+    <div class="contrib-icon">${c.icon}</div>
+    <div class="contrib-period">${c.period}</div>
+    <div class="contrib-title">${c.title}</div>
+    <div class="contrib-desc">${c.desc}</div>
+  </div>
+`).join('');
+
+// Re-observe new elements
+document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+
+// STATS
+const statsData = [
+  { icon: "👥", number: "1.4B+", label: "Population" },
+  { icon: "🗳️", number: "970M+", label: "Registered Voters" },
+  { icon: "📚", number: "77.7%", label: "Literacy Rate" },
+  { icon: "💰", number: "$3.7T", label: "GDP (Nominal)" },
+  { icon: "🌍", number: "5th", label: "Largest Economy" },
+  { icon: "🚀", number: "60+", label: "ISRO Space Missions" },
+  { icon: "💻", number: "10B+", label: "Monthly UPI Transactions" },
+  { icon: "🎓", number: "900+", label: "Universities" },
+  { icon: "🏙️", number: "640+", label: "Districts" },
+  { icon: "⚔️", number: "1.4M", label: "Active Military Personnel" },
+  { icon: "🌐", number: "800M+", label: "Internet Users" },
+  { icon: "🛤️", number: "68,000km", label: "Railway Network" },
+];
+
+document.getElementById('stats-grid').innerHTML = statsData.map(s => `
+  <div class="stat-card">
+    <div class="stat-icon">${s.icon}</div>
+    <div class="stat-number">${s.number}</div>
+    <div class="stat-label">${s.label}</div>
+  </div>
+`).join('');
+
+// FAQ
+const faqs = [
+  { q: "Why is Bharat called the world's largest democracy?", a: "Bharat (India) has the largest electorate in the world, with over 970 million registered voters. Its democratic institutions — a freely elected Parliament, independent judiciary, and free press — have functioned continuously since 1950, making it not only the largest but one of the most enduring democracies on earth." },
+  { q: "How many official languages does Bharat have?", a: "The Constitution of India recognizes 22 scheduled languages: Hindi, Bengali, Marathi, Telugu, Tamil, Gujarati, Urdu, Kannada, Odia, Malayalam, Punjabi, Assamese, Maithili, Sanskrit, Santali, Dogri, Kashmiri, Konkani, Sindhi, Manipuri, Bodo, and Nepali. English is used as an official language for administrative purposes." },
+  { q: "What does 'Unity in Diversity' mean for Bharat?", a: "Unity in Diversity is India's philosophical foundation — the idea that a nation of 1.4 billion people speaking hundreds of languages, practicing dozens of religions, following thousands of cultural traditions, can coexist, celebrate their differences, and still function as one nation. It is perhaps India's greatest achievement and most powerful gift to the idea of nationhood." },
+  { q: "What makes Bharat's civilization unique globally?", a: "Bharat is one of the world's few ancient continuous civilizations — where the culture, languages, spiritual traditions, and social practices from 5,000 years ago are still living and practiced today. Sanskrit mantras chanted in modern temples are the same as those in the Rigveda. This continuity of civilization — combined with its extraordinary diversity — is unparalleled in human history." },
+  { q: "What is the significance of Bharat's space program?", a: "ISRO has achieved missions that established India among the world's top space powers — often at a fraction of Western costs. The Mars Orbiter Mission (Mangalyaan) in 2014 was the cheapest interplanetary mission ever. Chandrayaan-3's successful lunar south pole landing in 2023 made India the 4th nation to land on the Moon." },
+  { q: "How has ancient Indian knowledge influenced the modern world?", a: "Ancient India's contributions to mathematics, astronomy, medicine, and philosophy are foundational to modern science. The decimal number system, the concept of zero, yoga and meditation, Ayurvedic medicine, the game of chess, the first grammars — all originate from the Indian subcontinent and have shaped global civilization in profound ways." },
+];
+
+document.getElementById('faq-container').innerHTML = faqs.map((f, i) => `
+  <div class="faq-item" id="faq-${i}">
+    <button class="faq-question" onclick="toggleFaq(${i})">
+      ${f.q}
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><p>${f.a}</p></div>
+  </div>
+`).join('');
+
+function toggleFaq(i) {
+  const item = document.getElementById('faq-' + i);
+  item.classList.toggle('active');
+}
+
+// COUNTER ANIMATION
+function animateCounter(el, target, suffix = '') {
+  const isDecimal = target.toString().includes('.');
+  const numericTarget = parseFloat(target.toString().replace(/[^0-9.]/g, ''));
+  let start = 0;
+  const duration = 2000;
+  const step = numericTarget / (duration / 16);
+
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= numericTarget) {
+      start = numericTarget;
+      clearInterval(timer);
+    }
+    el.textContent = (isDecimal ? start.toFixed(1) : Math.floor(start)).toLocaleString() + suffix;
+  }, 16);
+}
+</script>
+</body>
+</html>
